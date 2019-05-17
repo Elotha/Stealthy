@@ -1,0 +1,33 @@
+Gölge mekanikleri:
+------
+
+Eðilerek yürüme
+Koþma
+Bekleme ("ana karakter bir yere gelene kadar", "rakip bir yere gelene kadar", "x saniye")
+Etkileþim ("öldürme","switch","tuzak", "kapý")
+Dikkat daðýtma olmasý lazým
+Yok olma
+
+1 hp'si var
+Ýþi bitince de yok oluyor
+
+
+------
+Ana karakter mekanikleri:
+
+Eðilerek yürüme
+Koþma
+Bekleme
+Etkileþim
+Dikat daðýtma olmasý lazým
+
+
+------
+Dýþ mekanikler:
+
+Sokak lambalarý kullanýlabilir. Bunlarýn büyük olmasý þart deðil küçük de olabilir. Dokunarak gölgemizi baþka ýþýkta oluþturabiliriz.
+
+Switch.
+
+------
+Kenarlarda ve kolonlarda ýþýk olabilir, bu ýþýklar sokak lambalarýna baðlý olmaz. Sokak lambalarý asýl ýþýk kaynaðý olur. Iþýkmetre olur oyunda. Bu gardiyanlar tarafýndan ne kadar görülebileceðimizi belirtir.
