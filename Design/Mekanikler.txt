@@ -17,9 +17,9 @@ Ana karakter mekanikleri:
 
 Eðilerek yürüme
 Koþma
-Bekleme
-Etkileþim
-Dikat daðýtma olmasý lazým
+Bekleme (yukardakiler ile ayný)
+Etkileþim (yukardakiler ile ayný)
+Dikkat daðýtma olmasý lazým
 
 
 ------
@@ -27,7 +27,7 @@ Dýþ mekanikler:
 
 Sokak lambalarý kullanýlabilir. Bunlarýn büyük olmasý þart deðil küçük de olabilir. Dokunarak gölgemizi baþka ýþýkta oluþturabiliriz.
 
-Switch.
+Switch mekanikleri kullanýlabilir.
 
 ------
 Kenarlarda ve kolonlarda ýþýk olabilir, bu ýþýklar sokak lambalarýna baðlý olmaz. Sokak lambalarý asýl ýþýk kaynaðý olur. Iþýkmetre olur oyunda. Bu gardiyanlar tarafýndan ne kadar görülebileceðimizi belirtir.
