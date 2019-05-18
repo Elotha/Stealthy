@@ -1,0 +1,8 @@
+NOT: Bu mekanikler, ancak diðer her þeyin halledilmesi durumunda denenecek.
+
+Ana karakter, bir sokak lambasýnýn yanýna gidip E tuþunu kullanarak etkileþime girdiðinde, lambanýn ýþýðýný söndürüyor. Bu sýrada, yakýnlardaki sokak lambalarýna ulaþabiliyor ve onlarýn ýþýðýný söndürerek gölgesini yaratabiliyor.
+
+Ana karaktere takla atma özelliði eklenebilir.
+
+Bir þeylerin altýna saklanma özelliði eklenebilir.
+

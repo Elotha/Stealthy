@@ -5,7 +5,7 @@ Eðilerek yürüme
 Koþma
 Bekleme ("ana karakter bir yere gelene kadar", "rakip bir yere gelene kadar", "x saniye")
 Etkileþim ("öldürme","switch","tuzak", "kapý")
-Dikkat daðýtma olmasý lazým
+Dikkat daðýtma olmasý lazým (düþünülecek)
 Yok olma
 
 1 hp'si var
@@ -17,9 +17,8 @@ Ana karakter mekanikleri:
 
 Eðilerek yürüme
 Koþma
-Bekleme (yukardakiler ile ayný)
 Etkileþim (yukardakiler ile ayný)
-Dikkat daðýtma olmasý lazým
+Dikkat daðýtma olmasý lazým (düþünülecek)
 
 
 ------

@@ -1,0 +1,40 @@
+------ Genel Mekanikler ve Dizayn Bilgileri ------
+
+Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz.
+
+Ortada gölgemiz yokken kamera ana karakteri takip ediyor. Zamaný durdurup gölgemizi oynadýðýmýz zaman kamera, gölgemizi takip ediyor. Zaman tekrar normale döndüðünde, kamera tekrar ana karakteri takip ediyor. Ancak kameranýn takip etmesi, hafif bir gecikme ile gerçekleþiyor. Kamera açýsý "top-down".
+
+Arayüzde bir ýþýkmetre bulunuyor. Bu ýþýkmetre, ana karakterin ne kadar ýþýða maruz kaldýðýný güncel olarak gösteriyor. Bu ýþýkmetre, gölgeyi oynarken çalýþmýyor.
+
+
+------ Ana Karakterin Mekanikleri ------
+
+Ana karakter, hareket mekanizmasý olarak eðilerek yürüme ve koþma kullanabiliyor. C tuþuna bastýðýmýzda eðilme moduna geçiyor. Tekrar bastýðýmýzda ayaða kalkýyor. Ayaktayken koþuyoruz, eðilme modunda ise sessiz hareket ediyoruz. Eðilerek yürüme kullanýrken hýzý X birim, koþma kullanýrken ise hýzý 2X birim oluyor. Ana karakter, serbest bir þekilde, yön tuþlarý ile hareket edebiliyor. Sekiz yöne hareket edebiliyoruz (kýrk beþer derece açýlar ile).
+
+F tuþunu kullanarak gardiyanlara saldýrabiliyor. Saldýrdýðý zaman elinden gölge bir uzantý, bir grid öteye kadar ulaþýyor. Eðer bu uzantý bir gardiyana temas ederse, gardiyan gölgeleþip ardýndan yok oluyor. Uzantý bir gardiyana temas etmezse, ana karakterin eline geri dönüyor. Ana karakter, bu saldýrý esnasýnda sabit duruyor.
+
+
+------ Gölge Mekanikleri ------
+
+Space tuþuna basýnca oyunda zaman donuyor. Bu zaman durmasý sýrasýnda ana karakterin bulunduðu yerde ana karakterin tek renkli silüeti (gölgesi) oluþuyor. Bu gölgeyi, zamaný durduðumuz aþamada, ana karakteri oynar gibi oynuyoruz. Ana karakter ile tamamen ayný hareket yeteneklerine sahip bu gölgeyi oynarken yapýlan eylemler oyunda kayýt altýna alýnýyor. Space tuþuna tekrar bastýðýmýzda zaman tekrar eski haline dönüyor ve gölge, bizim onu yarattýðýmýz yere dönüp, kayýt altýna alýnan hareketleri tekrarlýyor. Gölge, kayýt altýna alýnan eylemleri tamamlandýðý zaman yok oluyor.
+
+Zamanýn durduðunu görsel olarak hissettirmemiz gerekiyor. Bunu saðlamak için ekranda bir renk efekti, mesela kýrmýzý renk filtresi gibi bir þey kullanýlabilir.
+
+Gölgeyi oynamanýn beþ saniyelik bir süre sýnýrý var. Bu süre sýnýrý biterse de tekrar ana karaktere dönüyoruz ve zaman otomatik olarak kaldýðý yerden devam ediyor. 
+
+Gölge, belirli bir miktardan fazla ýþýða maruz kalýrsa yok oluyor. Ayný þekilde, belirli bir miktardan fazla ýþýðýn altýndaysak space tuþu iþlemiyor.
+
+Gölgenin bir birimlik caný var. Herhangi bir hasar aldýðý anda PUF! 
+
+Ayný anda sadece bir gölge aktif olabilir. Bu yüzden eðer planladýðýmýz gölge görevini bitirmeden tekrar space tuþuna basarsak gölge yok oluyor ve tekrar bizim bulunduðumuz pozisyonda yaratýlýyor.
+
+
+------ Gölge ve Ana Karakterin Ortak Mekanikleri ------
+
+Eðilerek yürüme yapýldýðý sýrada ses çýkmýyor. Koþulduðu zaman ses, iki grid çapýnda duyulabilir oluyor. 
+
+
+------ Gardiyan Mekanikleri ------
+
+Gardiyanlarýn suratý, baktýklarý yöne doðru koni þeklinde ýþýk saçýyor olacak. Üç tür gardiyan davranýþ kalýbý olacak. Ýlki, sabit durma davranýþ kalýbý. Ýkincisi, hiç durmadan belirli bir rotayý izleyen davranýþ kalýbý. Üçüncüsü ise, bir rotayý izleyerek bir noktada duran, ardýndan rotayý tersine izleyip baþlangýç noktasýnda tekrar duran ve bunu bir döngü olarak tekrarlayan davranýþ kalýbý.
+

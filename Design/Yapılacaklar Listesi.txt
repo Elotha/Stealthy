@@ -1,0 +1,85 @@
+------ Çizimler ------
+
+---- Ana karakter (Sekiz yön çizimlerin hepsi öncelikle dört yön çizilecek. Vakit kalmazsa sekiz yöne çýkartýlmayacak)
+
+Eðilerek yürüme animasyonu sekiz yön için çizilecek.
+
+Koþma animasyonu sekiz yön için çizilecek.
+
+Öldürme animasyonu animasyonu sekiz yön için çizilecek.
+ (Ana karakterin elinden gölge bir uzantý, bir grid öteye kadar ulaþýyor. Eðer bu uzantý bir gardiyana temas ederse, gardiyanýn gölgeleþme animasyonu devreye giriyor. Bu sýrada ana karakter, gardiyanýn animasyonu bitene kadar sabit duruyor. Uzantý bir gardiyana temas etmezse, ana karakterin eline geri dönüyor)
+
+Ölme animasyonu sekiz yön için çizilecek.
+ (Hýzlý bir animasyon olmasý gerek. Çünkü oyuncu çok beklemeden hemen tekrar yeni bir þey deneyebilmeli)
+
+Iþýkmetre (Arayüze, ana karakterin ne kadar ýþýða maruz kaldýðýný belirtmek için eklenecek. Siyah ile oyundaki ýþýk rengi arasýnda rengi deðiþen bir gem ya da benzeri parlayan bir þey kullanýlabilir.)
+
+
+---- Gölge
+
+Gölge için ana karakterin direkt silüet hali kullanýlabilir.
+
+Ekstra olarak yok olma ve doðma çizilmesi gerekiyor. (ayný sprite'ýn tersten anime edilmiþ hali kullanýlabilir)
+
+
+---- Çevre
+
+Sokak lambasý (Havalý bir sokak lambasý olsa hoþ olur. Çünkü bu lambalar ile özel yetenek kullanacaðýz. Iþýðý rahat kullanabilmemiz adýna ýþýk, sokak lambasýna ortalanmalý. Yani dýþa doðru çýkmýþ ýþýktan uzak durmak daha iyi olur)
+
+Kolon (Kolon tek birimlik duvar olarak kullanýlacak. Yan yana dizerek duvar dikebileceðiz. Ayrýca kolonun üstünde ince bir þerit þeklinde ýþýk var. Ancak bu ýþýk, sadece kolonun yerini belli ediyor, mekaniksel pek bir etkisi yok. Bu ýþýk kod ile eklense daha saðlýklý olur.)
+
+Kolonlara entegre edilecek ýþýklar (Kolonlarýn yan yüzeylerine konulacaklar. Üçgen þeklinde ýþýk verecek minik bir baþ yeterli. Kolonlarýn dört yüzüne de konulabileceði için dört açýda da çizilmeli)
+
+Switch (Yerde bulunan, sadece sol ve sað tarafa çekilebilen bir tane kol. Yani sadece on/off olarak çalýþacak)
+
+Kapý (Elektronik çalýþan bir kapý deðil, daha organik görünümlü. Kapý direkt ortada, duvara baðlý olmadan da durabilecek. Bölümü geçmek için kapýyý açmamýz gerekecek. Açýlma animasyonu yerine baþta sadece kapalý ve açýk hali yeterli. Zaman kalýrsa animasyona tekrar dönüp detaylandýrýrýz. Kapýyý açtýðýmýz zaman içinden baþka bir yere geçebileceðiz)
+
+
+---- Gardiyan
+
+Yüzünde sanki bir maske takmýþ gibi görünen (hatta direkt maske de olabilir) bir gardiyan çizilecek. Gardiyan, ne tarafa bakarsa o tarafý koni þeklinde aydýnlatýyor olacak.
+
+Gardiyanýn yürüme animasyonu çizilecek.
+
+
+------ Kodlar ------ (Öncelik sýrasýna göre yazmadým)
+
+Ana karakterin sekiz yöne hareketi kodlanacak. (Hareket ivmeli deðil, mutlak olacak)
+
+Nesnelerin hitbaksý ve ana karakter / gölgenin nesneler ile collisioný kodlanacak.
+
+Kamera kodlanacak.
+
+C tuþu ile eðilerek yürüme / koþma geçiþi kodlanacak.
+
+F tuþu ile saldýrma kodlanacak.
+
+Space tuþu ile zamaný durdurup gölgeye geçme ve gölgenin eylemlerini kaydetme kodlanacak.
+
+Gölgenin yaþam ömrünün beþ saniye olmasý kodlanacak.
+
+Gölgenin eylemlerinin zaman tekrar normale döndüðünde uygulamaya geçmesi kodlanacak.
+
+Iþýklar kodlanacak.
+
+Iþýkmetre kodlanacak.
+
+Ana karakter ve gölgenin ýþýklarla etkileþimi kodlanacak.
+
+
+------ Dizayn ------
+
+Dikkat daðýtma mekaniði tasarlanacak.
+
+Bölüm dizaynlarý yapýlacak.
+
+Oyuna bir isim bulunacak.
+
+Gardiyan mekanikleri bitirilecek.
+
+Tuzak mekanikleri tasarlanacak.
+
+
+------ Müzik ------
+
+Oyuna müzik eklenecek.
