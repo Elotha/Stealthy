@@ -17,22 +17,16 @@ public class Follow : MonoBehaviour
     void FixedUpdate()
     {
 		Vector3 desiredPosition = Vector3.zero;
-		
 		desiredPosition = desiredPosition + target.position;
-		
 		Vector3 CameraZ = transform.position - target.position;
-
 		float distance = Mathf.Abs(CameraZ.x) + Mathf.Abs(CameraZ.y);
+	
 
-		float Wiev = -3.6f;
-		Wiev = ((distance / 10) * Wiev);
-
-
-
-		desiredPosition = new Vector3(desiredPosition.x , desiredPosition.y, Wiev) + offset;
+		desiredPosition = new Vector3(desiredPosition.x , desiredPosition.y, 0) + offset;
 		Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
 		
 		transform.position = smoothedPosition;
+
 	}
 
 	public void ChangeTarget(Transform newTarget)

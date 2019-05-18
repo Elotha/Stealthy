@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
 	public float RunSpeed;
 	public float CSpeed;
 	private float speed;
-
+	public GameInfo gameinfo;
+	public bool canToggle;
+	Vector3 lastdir;
     void Start()
     {
+		canToggle = true;
 		anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody2D>();
 		bc = GetComponent<BoxCollider2D>();
@@ -26,40 +29,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+		
 		if(!isShadow)
 		{
-			if(Input.GetKey("w"))
-			{
-				rb.velocity = new Vector2(0, speed);
-				GetComponent<SpriteRenderer>().flipX = false;
-				anim.SetInteger("State",1);
-			}
-			else if(Input.GetKey("d"))
-			{
-				rb.velocity = new Vector2(speed, 0);
-				GetComponent<SpriteRenderer>().flipX = true;
-				anim.SetInteger("State", 3);
-			}
-			else if (Input.GetKey("s"))
-			{
-				rb.velocity = new Vector2(0, -speed);
-				GetComponent<SpriteRenderer>().flipX = false;
-				anim.SetInteger("State", 2);
-			}
-			else if (Input.GetKey("a"))
-			{
-				rb.velocity = new Vector2(-speed, 0);
-				GetComponent<SpriteRenderer>().flipX = false;
-				anim.SetInteger("State", 3);
-			}
-			else
-			{
-				rb.velocity = Vector2.zero;
-			}
-			
+			HandleMove();
 		}
-
-
+		
 		if(Input.GetKey("c"))
 		{
 			speed = CSpeed;
@@ -88,27 +63,105 @@ public class PlayerController : MonoBehaviour
 
 	void ToggleShadow()
 	{
-		if(isShadow)
+		if(canToggle)
 		{
-			shadow.SetActive(false);
-			isShadow = false;
-			rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-			Camera.main.GetComponent<Follow>().ChangeTarget(transform);
-			GameObject.Find("LightControl").GetComponent<LightControl>().changeTarget(transform);
-			gameObject.GetComponent<Animator>().enabled = true;
+			if (isShadow)
+			{
+				shadow.SetActive(false);
+				isShadow = false;
+				rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+				Camera.main.GetComponent<Follow>().ChangeTarget(transform);
+				GameObject.Find("LightControl").GetComponent<LightControl>().changeTarget(this.gameObject);
+				gameObject.GetComponent<Animator>().enabled = true;
+				gameinfo.GoGuards();
+			}
+			else
+			{
+				shadow.SetActive(true);
+				isShadow = true;
+				shadow.transform.position = transform.position + new Vector3(0.15f, 0, 0);
+				Camera.main.GetComponent<Follow>().ChangeTarget(shadow.transform);
+				GameObject.Find("LightControl").GetComponent<LightControl>().changeTarget(shadow);
+				rb.constraints = RigidbodyConstraints2D.FreezeAll;
+				gameObject.GetComponent<Animator>().enabled = false;
+				gameinfo.StopGuards();
+
+			}
+		}
+		
+	}
+
+
+	void HandleMove()
+	{
+		float moveX = 0;
+		float moveY = 0;
+
+		if(Input.GetKey(KeyCode.W))
+		{
+			moveY = +1f;
+		}
+		if (Input.GetKey(KeyCode.S))
+		{
+			moveY = -1f;
+		}
+		if (Input.GetKey(KeyCode.D))
+		{
+			moveX = +1f;
+		}
+		if (Input.GetKey(KeyCode.A))
+		{
+			moveX = -1f;
+		}
+
+		bool isIdle = moveX == 0 && moveY == 0;
+		
+		if (isIdle)
+		{
+			ıdle(lastdir);
+			rb.velocity = Vector2.zero;
 		}
 		else
 		{
-			shadow.SetActive(true);
-			isShadow = true;
-			shadow.transform.position = transform.position + new Vector3(0.15f, 0, 0);
-			Camera.main.GetComponent<Follow>().ChangeTarget(shadow.transform);
-			GameObject.Find("LightControl").GetComponent<LightControl>().changeTarget(shadow.transform);
-			rb.constraints = RigidbodyConstraints2D.FreezeAll;
-			gameObject.GetComponent<Animator>().enabled = false;
-
+			Vector3 moveDir = new Vector3(moveX, moveY).normalized;
+			lastdir = moveDir;
+			run(moveDir);
+			rb.velocity = moveDir * speed;
 		}
 		
+	}
+
+	void ıdle(Vector3 dir)
+	{
+		if(dir.x>0.8f)
+		{
+			GetComponent<SpriteRenderer>().flipX = true;
+		}
+		else
+		{
+			GetComponent<SpriteRenderer>().flipX = false;
+
+		}
+		// sağ ise true
+		anim.SetBool("isIdle", true);
+		anim.SetFloat("lastX", Mathf.Abs(dir.x));
+		anim.SetFloat("lastY", dir.y);
+	}
+
+	void run(Vector3 dir)
+	{
+		if (dir.x > 0.8f)
+		{
+			GetComponent<SpriteRenderer>().flipX = true;
+		}
+		else
+		{
+			GetComponent<SpriteRenderer>().flipX = false;
+
+		}
+		anim.SetBool("isIdle", false);
+		anim.SetFloat("moveX", Mathf.Abs(dir.x));
+		anim.SetFloat("moveY", dir.y);
 	}
 	
 
