@@ -12,6 +12,8 @@ Koþma animasyonu sekiz yön için çizilecek.
 Ölme animasyonu sekiz yön için çizilecek.
  (Hýzlý bir animasyon olmasý gerek. Çünkü oyuncu çok beklemeden hemen tekrar yeni bir þey deneyebilmeli)
 
+Ana karakterin sokak lambasýný tutma animasyonu çizilecek.
+
 
 ---- Gölge
 

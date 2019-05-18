@@ -5,7 +5,7 @@ Ortada gölgemiz yokken kamera ana karakteri takip ediyor. Zamaný durdurup gölgem
 
 ------ Ana Karakterin Mekanikleri ------
 
-Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz.
+Ana karakter, bölüm baþýnda bir spawn merkezinde spawn oluyor (bir grid birimlik alan). Bu spawn merkezi, dikdörtgen þeklinde, altýnda ve üstünde bir plaka bulunan, plakalarýn cam ile birleþtirilip kapatýldýðý bir yapý. Bu yapýnýn içinde ana karakter doðuyor ve cam açýlýyor. Oyuncu istediði taraftan çýkabilir.
 
 Ana karakter, hareket mekanizmasý olarak eðilerek yürüme ve koþma kullanabiliyor. C tuþuna bastýðýmýzda eðilme moduna geçiyor. Tekrar bastýðýmýzda ayaða kalkýyor. Ayaktayken koþuyoruz, eðilme modunda ise sessiz hareket ediyoruz. Eðilerek yürüme kullanýrken hýzý X birim, koþma kullanýrken ise hýzý 2X birim oluyor. Ana karakter, serbest bir þekilde, yön tuþlarý ile hareket edebiliyor. Sekiz yöne hareket edebiliyoruz (kýrk beþer derece açýlar ile).
 
@@ -31,9 +31,11 @@ Ana karakter, gölgenin içinden geçemiyor.
 
 ------ Gölge ve Ana Karakterin Ortak Mekanikleri ------
 
-Eðilerek yürüme yapýldýðý sýrada ses çýkmýyor. Koþulduðu zaman ses, iki grid çapýnda duyulabilir oluyor. 
+Eðilerek yürüme yapýldýðý sýrada ses çýkmýyor. Koþulduðu zaman ses, dört grid çapýnda duyulabilir oluyor. 
 
 Ne kadar ýþýkta olduðumuzu oyuncuya hissettirmek için þöyle bir yöntem kullanýlabilir. Ana karakter ve gölgenin spriteý, aldýðý ýþýk miktarýna göre parlaklýðý deðiþiyor olabilir.
+
+Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz.
 
 
 ------ Gardiyan Mekanikleri ------
