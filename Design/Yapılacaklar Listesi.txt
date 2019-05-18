@@ -30,7 +30,7 @@ Kolon (Kolon tek birimlik duvar olarak kullanýlacak. Yan yana dizerek duvar dike
 
 Kolonlara entegre edilecek ýþýklar (Kolonlarýn yan yüzeylerine konulacaklar. Üçgen þeklinde ýþýk verecek minik bir baþ yeterli. Kolonlarýn dört yüzüne de konulabileceði için dört açýda da çizilmeli)
 
-Switch (Yerde bulunan, sadece sol ve sað tarafa çekilebilen bir tane kol. Yani sadece on/off olarak çalýþacak)
+Switch (Bazý kolonlarýn ortasýnda bir hazne bulunacak. Bu hazne, bazý objelerin çalýþmasý için pil gibi enerji saðlýyor olacak. Etkileþime girersek, çapraz bir pozisyonda dýþa doðru çýkacak. Böylece pili çýkartmýþ gibi olacaðýz. Ayný zamanda tekrar takabiliyoruz. Animasyona gerek yok. Pil takýlý / pil dýþarda þeklinde iki formu lazým sadece.)
 
 Kapý (Elektronik çalýþan bir kapý deðil, daha organik görünümlü. Kapý direkt ortada, duvara baðlý olmadan da durabilecek. Bölümü geçmek için kapýyý açmamýz gerekecek. Açýlma animasyonu yerine baþta sadece kapalý ve açýk hali yeterli. Zaman kalýrsa animasyona tekrar dönüp detaylandýrýrýz. Kapýyý açtýðýmýz zaman içinden baþka bir yere geçebileceðiz)
 
@@ -41,18 +41,18 @@ Yüzünde sanki bir maske takmýþ gibi görünen (hatta direkt maske de olabilir) bir
 
 Gardiyanýn yürüme animasyonu çizilecek.
 
+Gardiyanlarýn bir þeylerden þüphelendiði ve bizi gördüðü zamanlar için iki adet ifadeleri olacak. Bu ifadeler, gardiyanlarýn kafasýnýn üstünde çýkacak. Ýfadelerden biri soru iþareti, biri ünlem. 
+
 
 ------ Kodlar ------ (Öncelik sýrasýna göre yazmadým)
 
-Ana karakterin sekiz yöne hareketi kodlanacak. (Hareket ivmeli deðil, mutlak olacak)
+---- Ana karakter ve gölge
+
+Ana karakterin ve gölgenin sekiz yöne hareketi kodlanacak. (Hareket ivmeli deðil, mutlak olacak)
 
 Nesnelerin hitbaksý ve ana karakter / gölgenin nesneler ile collisioný kodlanacak.
 
-Kamera kodlanacak.
-
-C tuþu ile eðilerek yürüme / koþma geçiþi kodlanacak.
-
-F tuþu ile saldýrma kodlanacak.
+Ana karakter veya gölge, bir nesnenin arkasýna geçerse, nesnenin saydamlaþmasý kodlanacak (karakteri görebilmek için).
 
 Space tuþu ile zamaný durdurup gölgeye geçme ve gölgenin eylemlerini kaydetme kodlanacak.
 
@@ -60,11 +60,28 @@ Gölgenin yaþam ömrünün beþ saniye olmasý kodlanacak.
 
 Gölgenin eylemlerinin zaman tekrar normale döndüðünde uygulamaya geçmesi kodlanacak.
 
+C tuþu ile eðilerek yürüme / koþma geçiþi ve yürürken ses çýkmamasý, koþarken ses çýkmasý kodlanacak.
+
+F tuþu ile saldýrma kodlanacak.
+
+Ana karakter ve gölgenin ýþýklarla etkileþimi kodlanacak.
+
+Ayný anda tek bir gölge olabilmesi ve gölge yok olana kadar yeni gölge yaratýlamamasý kodlanacak.
+
+
+---- Diðer þeyler
+
+Zaman durmasý kodlanacak.
+
+Kamera kodlanacak.
+
 Iþýklar kodlanacak.
 
 Iþýkmetre kodlanacak.
 
-Ana karakter ve gölgenin ýþýklarla etkileþimi kodlanacak.
+Gardiyan davranýþ kalýplarý kodlanacak.
+
+Switchler ile etkileþime girebilme ve switch - ýþýk iliþkisi kodlanacak. 
 
 
 ------ Dizayn ------
