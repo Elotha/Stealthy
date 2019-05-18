@@ -8,39 +8,57 @@ public class LightControl : MonoBehaviour
 
 	public Image FilledBar;
 	Transform[] Lights;
-	public Transform target;
-
+	public GameObject Player;
+	public GameObject target;
+	int lightcount;
     // Start is called before the first frame update
     void Start()
     {
+		findLights();
+	}
+
+    // Update is called once per frame
+    void Update()
+    {
+		
+		float mindis = 1000;
+		for(int i=0;i<Lights.Length;i++)
+		{
+			if(Lights[i]!=null)
+			{
+				float temp = Vector3.Distance(target.transform.position, Lights[i].position);
+
+				if (temp < mindis)
+				{
+					mindis = temp;
+				}
+			}
+			
+		}
+
+		FilledBar.fillAmount = 1 - mindis;
+		if(mindis>0.3f)
+		{
+			Player.GetComponent<PlayerController>().canToggle = true;
+		}
+		else
+		{
+			Player.GetComponent<PlayerController>().canToggle = false;
+		}
+    }
+
+	public void findLights()
+	{
 		GameObject[] temp = GameObject.FindGameObjectsWithTag("Light");
 		Lights = new Transform[temp.Length];
 		for (int i = 0; i < temp.Length; i++)
 		{
 			Lights[i] = temp[i].transform;
 		}
-    }
+		lightcount = Lights.Length;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		
-		float mindis = Vector3.Distance(target.position, Lights[0].position);
-		for(int i=1;i<Lights.Length;i++)
-		{
-			float temp = Vector3.Distance(target.position,Lights[i].position);
-
-			if (temp < mindis)
-			{
-				mindis = temp;
-			}
-		}
-
-		FilledBar.fillAmount = 1 - mindis;
-
-    }
-
-	public void changeTarget(Transform newTarget)
+	public void changeTarget(GameObject newTarget)
 	{
 		target = newTarget;
 	}
