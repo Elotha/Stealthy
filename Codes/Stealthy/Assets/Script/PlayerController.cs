@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 	public GameInfo gameinfo;
 	public bool canToggle;
 	Vector3 lastdir;
+
     void Start()
     {
 		canToggle = true;
@@ -24,12 +25,9 @@ public class PlayerController : MonoBehaviour
 		bc = GetComponent<BoxCollider2D>();
 		shadow.SetActive(false);
     }
-
-
-    // Update is called once per frame
+	
     void FixedUpdate()
     {
-		
 		if(!isShadow)
 		{
 			HandleMove();
@@ -50,35 +48,36 @@ public class PlayerController : MonoBehaviour
 				speed = NormalSpeed;
 			}
 		}
-
 		
-
 		if(Input.GetKeyDown("space"))
 		{
 			ToggleShadow();
 			
 		}
 	}
-
-
+	
 	void ToggleShadow()
 	{
 		if(canToggle)
 		{
 			if (isShadow)
 			{
-				shadow.SetActive(false);
 				isShadow = false;
 				rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 				Camera.main.GetComponent<Follow>().ChangeTarget(transform);
 				GameObject.Find("LightControl").GetComponent<LightControl>().changeTarget(this.gameObject);
 				gameObject.GetComponent<Animator>().enabled = true;
 				gameinfo.GoGuards();
+				shadow.GetComponent<ShadowControl>().enabled = false;
+				shadow.GetComponent<TimeBody>().StartRewind();
 			}
 			else
 			{
 				shadow.SetActive(true);
+				shadow.GetComponent<ShadowControl>().enabled = true;
 				isShadow = true;
+				shadow.GetComponent<TimeBody>().enabled = true;
+				shadow.GetComponent<TimeBody>().StopRewind();
 				shadow.transform.position = transform.position + new Vector3(0.15f, 0, 0);
 				Camera.main.GetComponent<Follow>().ChangeTarget(shadow.transform);
 				GameObject.Find("LightControl").GetComponent<LightControl>().changeTarget(shadow);

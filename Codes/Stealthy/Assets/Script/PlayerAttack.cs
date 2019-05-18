@@ -11,15 +11,21 @@ public class PlayerAttack : MonoBehaviour
 	public LayerMask enemy;
 	public float attackRange;
 	public LightControl Lc;
+	Animator anim;
 
+	private void Start()
+	{
+		anim = GetComponent<Animator>();
+	}
+	
 	private void Update()
 	{
-		
-		if(timeToAttack <= 0)
+		if (timeToAttack <= 0)
 		{
 
-			if(Input.GetKey(KeyCode.F))
+			if (Input.GetKey(KeyCode.F))
 			{
+				anim.SetBool("Wind", true);
 				Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
 
 				for (int i = 0; i < enemies.Length; i++)
@@ -28,8 +34,13 @@ public class PlayerAttack : MonoBehaviour
 				}
 				Lc.findLights();
 				timeToAttack = timeBtwAttakcs;
-				//Debug.Log(enemies.Length);
 			}
+
+		}
+		else if(timeToAttack <= 0.5 && timeToAttack >0)
+		{
+			anim.SetBool("Wind", false);
+			timeToAttack -= Time.deltaTime;
 		}
 		else
 		{

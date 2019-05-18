@@ -62,10 +62,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\ApplicationSet.cs" />
     <Compile Include="Assets\Script\Follow.cs" />
-    <Compile Include="Assets\Script\Fps.cs" />
-    <Compile Include="Assets\Script\GameInfo.cs" />
+    <Compile Include="Assets\Script\Ganeral\ApplicationSet.cs" />
+    <Compile Include="Assets\Script\Ganeral\Fps.cs" />
+    <Compile Include="Assets\Script\Ganeral\GameInfo.cs" />
     <Compile Include="Assets\Script\Guard.cs" />
     <Compile Include="Assets\Script\LightControl.cs" />
     <Compile Include="Assets\Script\Patrol.cs" />
