@@ -1,13 +1,15 @@
 ------ Genel Mekanikler ve Dizayn Bilgileri ------
 
-Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz.
-
 Ortada gölgemiz yokken kamera ana karakteri takip ediyor. Zamaný durdurup gölgemizi oynadýðýmýz zaman kamera, gölgemizi takip ediyor. Zaman tekrar normale döndüðünde, kamera tekrar ana karakteri takip ediyor. Ancak kameranýn takip etmesi, hafif bir gecikme ile gerçekleþiyor. Kamera açýsý "top-down".
 
 Arayüzde bir ýþýkmetre bulunuyor. Bu ýþýkmetre, ana karakterin ne kadar ýþýða maruz kaldýðýný güncel olarak gösteriyor. Bu ýþýkmetre, gölgeyi oynarken çalýþmýyor.
 
+Switchler, kolonlarýn içerisine yerleþtirilmiþ pil hazneleri gibi çalýþacak. Switchin bulunduðu kolonun altýndan çýkan ve baðlandýðý mekanizmanýn olduðu kolona giden bir beyaz çizgi görüyoruz. Bu þekilde hangi switch hangi mekanizmayý çalýþtýrýyor, anlayabiliyoruz. Switchler, daha çok sokak lambasý dýþýndaki ýþýklar için kullanýlacak. Yetiþirse tuzak ve kapý mekanikleri için de kullanýlabilir.
+
 
 ------ Ana Karakterin Mekanikleri ------
+
+Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz.
 
 Ana karakter, hareket mekanizmasý olarak eðilerek yürüme ve koþma kullanabiliyor. C tuþuna bastýðýmýzda eðilme moduna geçiyor. Tekrar bastýðýmýzda ayaða kalkýyor. Ayaktayken koþuyoruz, eðilme modunda ise sessiz hareket ediyoruz. Eðilerek yürüme kullanýrken hýzý X birim, koþma kullanýrken ise hýzý 2X birim oluyor. Ana karakter, serbest bir þekilde, yön tuþlarý ile hareket edebiliyor. Sekiz yöne hareket edebiliyoruz (kýrk beþer derece açýlar ile).
 
@@ -26,7 +28,7 @@ Gölge, belirli bir miktardan fazla ýþýða maruz kalýrsa yok oluyor. Ayný þekilde,
 
 Gölgenin bir birimlik caný var. Herhangi bir hasar aldýðý anda PUF! 
 
-Ayný anda sadece bir gölge aktif olabilir. Bu yüzden eðer planladýðýmýz gölge görevini bitirmeden tekrar space tuþuna basarsak gölge yok oluyor ve tekrar bizim bulunduðumuz pozisyonda yaratýlýyor.
+Ayný anda sadece bir gölge aktif olabilir. Bu yüzden kaydettiðimiz gölge hareketlerini henüz bitirmemiþse, oyuncu yeni bir gölge yaratamaz. Gölgesinin yaptýðý iþleri tamamlamasýný veya ölmesini beklemek zorunda.
 
 
 ------ Gölge ve Ana Karakterin Ortak Mekanikleri ------
