@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 39dc3b2813c24514d81654b042b49c93
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2822021408597250771
+    second: shadowdown_0
+  - first:
+      213: -4743185471340960313
+    second: shadowdown_1
+  - first:
+      213: -3394051482480620728
+    second: shadowdown_2
+  - first:
+      213: -6540089680373438607
+    second: shadowdown_3
+  - first:
+      213: 9196124353649453496
+    second: shadowdown_4
+  - first:
+      213: 4602461778343780738
+    second: shadowdown_5
+  - first:
+      213: -6066246843896315923
+    second: shadowdown_6
+  - first:
+      213: 1453439383341764075
+    second: shadowdown_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,12 +64,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +87,29 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -71,7 +117,175 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: shadowdown_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 11
+        width: 14
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d611993fed81844bede566026cb97a
+      internalID: 2822021408597250771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 12
+        width: 14
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3ecfe572ba0e44cb3db647125241c1
+      internalID: -4743185471340960313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 11
+        width: 14
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b232729e120a51f4ba988597670bbd7f
+      internalID: -3394051482480620728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 10
+        width: 14
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6674179a624c7e8459ec58a0e72ea6bd
+      internalID: -6540089680373438607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_4
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 7
+        width: 21
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9179a25dccf8d334fbe704244d3bf8b1
+      internalID: 9196124353649453496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_5
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 3
+        width: 32
+        height: 40
+      alignment: 9
+      pivot: {x: 0.4875965, y: 0.0038759112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aec0475e06ea274da8d9ff73dde6736
+      internalID: 4602461778343780738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_6
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 3
+        width: 47
+        height: 43
+      alignment: 9
+      pivot: {x: 0.49999934, y: -0.0076618525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ba98f4e379afa47a5f6233f2be3037
+      internalID: -6066246843896315923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shadowdown_7
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 44
+        height: 43
+      alignment: 9
+      pivot: {x: 0.4999993, y: 0.020028792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87e00b916c3d68c40b77b256c788f33a
+      internalID: 1453439383341764075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Light
   - Guard
+  - Shadow
+  - Spawn
+  - mermi
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - Playable
   - Enemy
-  - 
+  - back
   - 
   - 
   - 
@@ -42,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: back
+    uniqueID: 1711955105
     locked: 0

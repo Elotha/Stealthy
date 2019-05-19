@@ -7,6 +7,7 @@ public class TimeBody : MonoBehaviour
 	public bool isRewinding;
 
 	List<Vector3> positions;
+	List<Vector2> moves;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,6 @@ public class TimeBody : MonoBehaviour
 		{
 			Record();
 		}
-
     }
 
 	void rePlay()

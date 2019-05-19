@@ -8,11 +8,16 @@ public class Guard : MonoBehaviour
 	int count;
 	public Transform[] targets;
 	public float speed;
-
+	bool dead;
 	int direction;
+	float time_ = 0.6f;
+
+	Animator anim;
 	// Start is called before the first frame update
 	void Start()
     {
+		anim = GetComponent<Animator>();
+		dead = false;
 		speed = 0.006f;
 		count = 0;
 		direction = 1;
@@ -25,17 +30,37 @@ public class Guard : MonoBehaviour
 	
 	private void FixedUpdate()
 	{
-		if(targets.Length>0)
+		if(!dead)
 		{
-			if (followpatrol(targets[count], speed) == 0)
+			if (targets.Length > 0)
 			{
-				count = count + 1;
-				if (count == targets.Length)
+				if (followpatrol(targets[count], speed) == 0)
 				{
-					count = 0;
+					count = count + 1;
+					if (count == targets.Length)
+					{
+						count = 0;
+					}
 				}
 			}
+
 		}
+		else
+		{
+			if(time_ < 0)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				time_ -= Time.deltaTime;
+				anim.SetBool("dead", true);
+			}
+
+
+
+		}
+	
 	}
 
 	int followpatrol(Transform target, float speed)
@@ -78,5 +103,12 @@ public class Guard : MonoBehaviour
 			sight[i].SetActive(false);
 		}
 		sight[dir - 1].SetActive(true);
+	}
+
+
+	public void dead_()
+	{
+		anim.SetBool("dead",true);
+		dead = true;
 	}
 }
