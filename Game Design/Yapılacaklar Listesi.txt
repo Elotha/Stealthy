@@ -1,0 +1,64 @@
+------ Çizimler ------
+
+
+---- Çevre (Öncelik sýrasýna göre yapýldý)
+
+Kapý (Elektronik çalýþan bir kapý deðil, daha organik görünümlü. Kapý direkt ortada, duvara baðlý olmadan da durabilecek. Bölümü geçmek için kapýyý açmamýz gerekecek. Açýlma animasyonu yerine baþta sadece kapalý ve açýk hali yeterli. Zaman kalýrsa animasyona tekrar dönüp detaylandýrýrýz. Kapýyý açtýðýmýz zaman içinden baþka bir yere geçebileceðiz)
+
+
+---- Gardiyan
+
+Gardiyanýn ýþýk alanlarý çizilecek.
+
+
+------ Kodlar ------ (Öncelik sýrasýna göre yazýlmadý)
+
+---- Ana karakter ve gölge
+
+Ana karakterin ve gölgenin sekiz yöne hareketi kodlanacak. (Hareket ivmeli deðil, mutlak olacak)
+
+Nesnelerin hitbaksý ve ana karakter / gölgenin nesneler ile collisioný kodlanacak.
+
+Ana karakter veya gölge, bir nesnenin arkasýna geçerse, nesnenin saydamlaþmasý kodlanacak (karakteri görebilmek için). (Bu mekanik sona býrakýlmalý, öncelikli deðil)
+
+Space tuþu ile zamaný durdurup gölgeye geçme ve gölgenin eylemlerini kaydetme kodlanacak.
+
+Gölgenin yaþam ömrünün beþ saniye olmasý kodlanacak.
+
+Gölgenin eylemlerinin zaman tekrar normale döndüðünde uygulamaya geçmesi kodlanacak.
+
+C tuþu ile eðilerek yürüme / koþma geçiþi ve yürürken ses çýkmamasý, koþarken dört grid çapýnda ses çýkmasý kodlanacak.
+
+F tuþu ile saldýrma kodlanacak.
+
+Gölgenin yüksek ýþýk alanlarýyla etkileþimi kodlanacak.
+
+Ayný anda tek bir gölge olabilmesi ve gölge yok olana kadar yeni gölge yaratýlamamasý kodlanacak.
+
+Oyuna müzik eklenecek.
+
+Oyuna temel bir checkpoint sistemi eklenecek.
+
+Sokak lambasý kodlanacak.
+
+
+---- Diðer þeyler
+
+Zaman durmasý kodlanacak.
+
+Kamera kodlanacak.
+
+Iþýk spritelarý oyuna eklenecek.
+
+Gardiyanýn davranýþlarý kodlanacak.
+
+Switchler ile etkileþime girebilme ve switch - ýþýk iliþkisi kodlanacak. 
+
+
+------ Dizayn ------
+
+Bölüm dizaynlarý yapýlacak.
+
+Oyuna bir isim bulunacak.
+
+Tuzak mekanikleri tasarlanacak.

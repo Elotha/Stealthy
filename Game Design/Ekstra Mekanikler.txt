@@ -1,0 +1,6 @@
+NOT: Bu mekanikler, ancak diðer her þeyin halledilmesi durumunda denenecek.
+
+Ana karaktere takla atma özelliði eklenebilir.
+
+Bir þeylerin altýna saklanma özelliði eklenebilir.
+
