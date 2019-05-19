@@ -2,6 +2,8 @@
 
 Ortada gölgemiz yokken kamera ana karakteri takip ediyor. Zamaný durdurup gölgemizi oynadýðýmýz zaman kamera, gölgemizi takip ediyor. Zaman tekrar normale döndüðünde, kamera tekrar ana karakteri takip ediyor. Ancak kameranýn takip etmesi, hafif bir gecikme ile gerçekleþiyor. Kamera açýsý "top-down".
 
+Oyunda çok temel bir checkpoint sistemi olmasý gerekiyor. Bu amaçla spawn pointler kullanýlabilir. Bölümler arasýnda geçiþ yaptýðýmýz zaman spawn point, bizim checkpointimiz olur. Öldüðümüz zaman odadaki her þey resetlenir ve spawn pointten tekrar doðarak, ayný bölümü oynarýz.
+
 
 ------ Ana Karakterin Mekanikleri ------
 
@@ -10,6 +12,8 @@ Ana karakter, bölüm baþýnda bir spawn merkezinde spawn oluyor (bir grid birimlik
 Ana karakter, hareket mekanizmasý olarak eðilerek yürüme ve koþma kullanabiliyor. C tuþuna bastýðýmýzda eðilme moduna geçiyor. Tekrar bastýðýmýzda ayaða kalkýyor. Ayaktayken koþuyoruz, eðilme modunda ise sessiz hareket ediyoruz. Eðilerek yürüme kullanýrken hýzý X birim, koþma kullanýrken ise hýzý 2X birim oluyor. Ana karakter, serbest bir þekilde, yön tuþlarý ile hareket edebiliyor. Sekiz yöne hareket edebiliyoruz (kýrk beþer derece açýlar ile).
 
 F tuþunu kullanarak gardiyanlara saldýrabiliyor. Saldýrdýðý zaman elinden gölge bir uzantý, bir grid öteye kadar ulaþýyor. Eðer bu uzantý bir gardiyana temas ederse, gardiyan gölgeleþip ardýndan yok oluyor. Uzantý bir gardiyana temas etmezse, ana karakterin eline geri dönüyor. Ana karakter, bu saldýrý esnasýnda sabit duruyor.
+
+Ana karakter, bir sokak lambasýnýn yanýna gidip E tuþunu kullanarak etkileþime girdiðinde, lambanýn ýþýðýný söndürüyor. Bu sýrada, yakýnlardaki sokak lambalarýna ulaþabiliyor ve onlarýn ýþýðýný söndürerek gölgesini yaratabiliyor. Yakýnlardaki sokak lambalarýna ulaþma mekaniðini, kameranýn lambalara odaklanmasý ile algýlýyoruz. Kamera, sokak lambasý ile etkileþime girildikten sonra ilk olarak en yakýndaki sokak lambasýna odaklanýyor. Eðer baþka bir sokak lambasý kullanmak istiyorsak yön oklarýna basarak bölümde baþka sokak lambasý var mý diye kontrol edebiliriz. Sokak lambasýný seçtiðimiz zaman space tuþuna bastýðýmýzda, seçtiðimiz sokak lambasý sönecek ve hemen yanýnda bir gölge oluþacak. Ardýndan gölgeyi oynamaya baþlayacaðýz. Eðer oyuncu sokak lambasý kullanmaktan vazgeçerse, space tuþuna basmadan E tuþuna basarak etkileþimden çýkabilir.
 
 
 ------ Gölge Mekanikleri ------
@@ -20,39 +24,35 @@ Zamanýn durduðunu görsel olarak hissettirmemiz gerekiyor. Bunu saðlamak için ekr
 
 Gölgeyi oynamanýn beþ saniyelik bir süre sýnýrý var. Bu süre sýnýrý biterse de tekrar ana karaktere dönüyoruz ve zaman otomatik olarak kaldýðý yerden devam ediyor. 
 
-Gölge, belirli bir miktardan fazla ýþýða maruz kalýrsa yok oluyor. Ayný þekilde, belirli bir miktardan fazla ýþýðýn altýndaysak space tuþu iþlemiyor.
-
-Gölgenin bir birimlik caný var. Herhangi bir hasar aldýðý anda PUF! 
+Gölge, yüksek ýþýk alanýna girerse yok oluyor. Ayný þekilde, yüksek ýþýk alanýndayken space tuþu iþlemiyor.
 
 Ayný anda sadece bir gölge aktif olabilir. Bu yüzden kaydettiðimiz gölge hareketlerini henüz bitirmemiþse, oyuncu yeni bir gölge yaratamaz. Gölgesinin yaptýðý iþleri tamamlamasýný veya ölmesini beklemek zorunda.
 
-Ana karakter, gölgenin içinden geçemiyor.
+Ana karakter, gölgenin içinden geçebiliyor.
 
 
 ------ Gölge ve Ana Karakterin Ortak Mekanikleri ------
 
 Eðilerek yürüme yapýldýðý sýrada ses çýkmýyor. Koþulduðu zaman ses, dört grid çapýnda duyulabilir oluyor. 
 
-Ne kadar ýþýkta olduðumuzu oyuncuya hissettirmek için þöyle bir yöntem kullanýlabilir. Ana karakter ve gölgenin spriteý, aldýðý ýþýk miktarýna göre parlaklýðý deðiþiyor olabilir.
+Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz. Transparanlaþmasý yerine arkada silüetimiz de çýkabilir. (Bu mekanik öncelikli deðil, sona býrakýlsýn)
 
-Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz.
+Gölgenin de oyuncunun da bir caný var. Hasar aldýklarý anda ölüyorlar. Ana karakter ölürse, bölümdeki checkpoint noktasýndan tekrar doðuyor.
 
 
 ------ Gardiyan Mekanikleri ------
 
-Gardiyanlarýn suratý, baktýklarý yöne doðru koni þeklinde ýþýk saçýyor olacak. Üç tür gardiyan davranýþ kalýbý olacak. Ýlki, sabit durma davranýþ kalýbý. Ýkincisi, hiç durmadan belirli bir rotayý izleyen davranýþ kalýbý. Üçüncüsü ise, bir rotayý izleyerek bir noktada duran, ardýndan rotayý tersine izleyip baþlangýç noktasýnda tekrar duran ve bunu bir döngü olarak tekrarlayan davranýþ kalýbý.
+Üç tür gardiyan davranýþ kalýbý olacak. Ýlki, sabit durma davranýþ kalýbý. Ýkincisi, hiç durmadan belirli bir rotayý izleyen davranýþ kalýbý. Üçüncüsü ise, bir rotayý izleyerek bir noktada duran, ardýndan rotayý tersine izleyip baþlangýç noktasýnda tekrar duran ve bunu bir döngü olarak tekrarlayan davranýþ kalýbý.
 
-Gardiyanlarýn görüþ alaný, bizim içinde bulunduðumuz ýþýk miktarýna göre deðiþiyor. Ne kadar çok ýþýðýn altýndaysak, o kadar görülebilir oluyoruz. 
+Gardiyanlarýn suratý, baktýklarý yöne doðru koni þeklinde ýþýk saçýyor. Ama gerçekçi ýþýk kodlamak yerine ýþýðý sadece temsili göstereceðiz. Gardiyanýn önünde bulunan saydam spritelar aracýlýðýyla, biri diðerini kapsayacak þekilde iki tane alan olacak. Bu spritelar ýþýk miktarýný belirtmek için kullanýlacak. Ýçeride olan ýþýk alaný, "yüksek ýþýk" alanýný temsil ediyor. Bu alandayken gölge yaratamýyoruz ya da gölgemiz bu alana girerse yok oluyor. Ayný þekilde gardiyanýn yüksek ýþýk alanýna girmiþsek gardiyan tarafýndan tespit edilmiþ oluyoruz. Ýçerdeki yüksek ýþýðý kapsayan bir de orta ýþýk mesafesi var. Bu alana girersek, gardiyanýn kafasýnda soru iþareti çýkýyor. Soru iþareti çýktýktan sonra bir saniyelik süremiz var. Bu süre içerisinde gardiyanýn görüþ alanýndan çýkarsak, gardiyan bizi son gördüðü noktaya yürüyüp etrafa bakýyor (etrafa bakýnma mekaniði bir sonraki paragrafta anlatýlmýþtýr). Gardiyanýn görüþ alanýndan çýkamazsak, soru iþareti ünleme dönüþüyor ve yarým saniyelik bir hedefe kitlenmenin ardýndan bizi gördüðü noktaya ateþ ediyor. Bizi vurursa ölüyoruz.
 
-Gardiyanýn ýþýk ve görüþ alaný üç katmanlý. Ýlk katmanda, gardiyan koni þeklinde bir alaný kendi kafasýndan çýkan ýþýk ile aydýnlatýyor. Koninin bir sonraki katmanýnda, oyuncunun ýþýk miktarýna baðlý olarak bizi görürse üstünde bir ünlem iþareti çýkýyor ve yarým saniye sonra bizi gördüðü noktaya ateþ ediyor. Bizi vuramazsa, normal yürüme hýzýnýn iki katý hýzýnda, bizi en son gördüðü noktaya yürüyor. Hedef noktaya geldikten bir saniye sonra, yarým saniyede 60 derecelik dönüþ yapacak hýzda, önce baktýðý açýnýn 60 derece saðýna, sonra da 60 derece soluna bakýyor ve son olarak sýfýr dereceye dönüyor. Bir saniye bekliyor. Bizi hala göremiyorsa, eski pozisyonuna ve davranýþ kalýbýna geri dönüyor.
+Gardiyan bizi tam olarak gördüyse her zaman þu mekanik çalýþýyor: Gardiyanýn görüþ mesafesi içerisindeysek yarým saniyelik hedefe kitlenmenin ardýndan bize ateþ ediyor. Ateþi tutturursa ölüyoruz, tutturamazsa gardiyan, bir saniye boyunca þarjör yeniliyor. Bu sýrada görüþ alanýndan çýkamazsak tekrar ayný mekanikler iþlemeye devam ediyor (yani hedefe kitlenme ve ateþ döngüsü). Görüþ alanýndan çýkarsak, bizi son gördüðü noktaya doðru normal yürüme hýzýnýn iki katý hýzýyla yürüyerek geliyor. Eðer görüþ alanýna tekrar girdiysek, ayný mekanikler tekrar çalýþýyor. Eðer görüþ alanýndan bu kez çýkabilmiþsek, hedef noktaya geldikten bir saniye sonra, yarým saniyede 45 derecelik dönüþ yapacak hýzda, önce baktýðý açýnýn 45 derece saðýna, sonra da 45 derece soluna bakýyor ve son olarak sýfýr dereceye dönüyor. Bir saniye bekliyor. Bizi hala göremiyorsa, eski pozisyonuna ve davranýþ kalýbýna geri dönüyor. Bizi görürse bütün mekanik tekrar döngüye giriyor.
 
-Eðer ikinci katman tarafýndan deðil de üçüncü katman tarafýndan görülürsek, bu kez gardiyanýn üstünde bir soru iþareti çýkýyor. Bir saniye kadar yerinde bekledikten sonra, hareket hýzý deðiþmeden, bizi gördüðü veya duyduðu noktaya doðru ilerliyor. Hedef noktaya geldikten bir saniye sonra, yarým saniyede 60 derecelik dönüþ yapacak hýzda, önce baktýðý açýnýn 60 derece saðýna, sonra da 60 derece soluna bakýyor ve son olarak sýfýr dereceye dönüyor. Bir saniye bekliyor. Bizi hala göremiyorsa, eski pozisyonuna ve davranýþ kalýbýna geri dönüyor. Eðer eski pozisyonuna dönme eylemine geçmeden, bizi ikinci veya üçüncü katmanda görürse üstünde ünlem iþareti çýkýyor ve ikinci katmanda olduðu gibi bize yarým saniye sonra ateþ ediyor.
-
-Gardiyana yakalanýp ünlem iþareti oluþturduktan sonra, görüþ mesafesinden çýkana kadar bizi kovalayan gardiyanýn hýzý iki katýna çýkýyor. Bize ateþ edeceði zaman yarým saniye sabit duruyor, ardýndan ateþ ediyor. Ateþ ettikten sonra, bizi en son gördüðü konuma tekrar hareketleniyor.
+Yukarda anlatýlanlar, gardiyanýn görüþü ile ilgiliydi. Bir de gardiyanýn sese tepkisi var. Ana karakterin ve gölgenin koþmasý, dört grid çapýnda bir alana ses yayýyor. Eðer bir gardiyan, bu dört grid çapýndaki alandaysa ve biz görüþ alanýnda deðilsek, kafasýnda soru iþareti çýkýyor. Bir saniyelik beklemenin ardýndan sesin bulunduðu noktaya gidiyor. Ardýndan etrafa bakma mekaniði devreye giriyor ve yukarýdaki paragrafta olduðu þekilde mekanikler çalýþýyor.
 
 
 ------ Switch Mekanikleri ------
 
-Switchler, kolonlarýn içerisine yerleþtirilmiþ pil hazneleri gibi çalýþacak. Switchin bulunduðu kolonun altýndan çýkan ve baðlandýðý mekanizmanýn olduðu kolona giden bir beyaz çizgi görüyoruz. Bu þekilde hangi switch hangi mekanizmayý çalýþtýrýyor anlayabiliyoruz. Switchler, daha çok sokak lambasý dýþýndaki ýþýklar için kullanýlacak. Yetiþirse tuzak ve kapý mekanikleri için de kullanýlabilir.
+Switchler, kolonlarýn içerisine yerleþtirilmiþ pil hazneleri gibi çalýþacak. Switchin bulunduðu kolonun altýndan çýkan ve baðlandýðý mekanizmanýn olduðu kolona giden bir beyaz çizgi görüyoruz (bu çizgi grid yapýsýný takip edecek yani dümdüz bir çizgi deðil). Bu þekilde hangi switch hangi mekanizmayý çalýþtýrýyor anlayabiliyoruz. Switchler, daha çok sokak lambasý dýþýndaki ýþýklar için kullanýlacak. Yetiþirse tuzak ve kapý mekanikleri için de kullanýlabilir. (Çizgi mekaniði öncelikli deðil, þimdilik çizgi çizilmeden kullanýlsýn).
 
 Ana karakter veya gölgemiz, switch'in bir grid uzaðýndayken switch beyaz bir outline ile parlýyor. Böylece etkileþime geçilebilir olduðunu anlýyoruz. E tuþuna basarak etkileþime geçebiliyoruz. Herhangi bir animasyon oynamadan direkt olarak on / off þeklinde çalýþýyor. Switch, hangi mekanizmaya baðlýysa onu açýyor / kapatýyor.
