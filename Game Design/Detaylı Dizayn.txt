@@ -33,7 +33,7 @@ Ana karakter, gölgenin içinden geçebiliyor.
 
 ------ Gölge ve Ana Karakterin Ortak Mekanikleri ------
 
-Eðilerek yürüme yapýldýðý sýrada ses çýkmýyor. Koþulduðu zaman ses, dört grid çapýnda duyulabilir oluyor. 
+Eðilerek yürüme yapýldýðý sýrada ses çýkmýyor. Koþulduðu zaman ses, üç grid yarýçapýnda duyulabilir oluyor (oyuncunun bulunduðu grid hariç üç grid mesafe anlamýnda). 
 
 Ana karakter ya da gölge, büyük bir nesnenin arkasýna geçerse nesne transparanlaþacak, böylece arkasýnda kendimizi görebileceðiz. Transparanlaþmasý yerine arkada silüetimiz de çýkabilir. (Bu mekanik öncelikli deðil, sona býrakýlsýn)
 
@@ -56,3 +56,7 @@ Yukarda anlatýlanlar, gardiyanýn görüþü ile ilgiliydi. Bir de gardiyanýn sese te
 Switchler, kolonlarýn içerisine yerleþtirilmiþ pil hazneleri gibi çalýþacak. Switchin bulunduðu kolonun altýndan çýkan ve baðlandýðý mekanizmanýn olduðu kolona giden bir beyaz çizgi görüyoruz (bu çizgi grid yapýsýný takip edecek yani dümdüz bir çizgi deðil). Bu þekilde hangi switch hangi mekanizmayý çalýþtýrýyor anlayabiliyoruz. Switchler, daha çok sokak lambasý dýþýndaki ýþýklar için kullanýlacak. Yetiþirse tuzak ve kapý mekanikleri için de kullanýlabilir. (Çizgi mekaniði öncelikli deðil, þimdilik çizgi çizilmeden kullanýlsýn).
 
 Ana karakter veya gölgemiz, switch'in bir grid uzaðýndayken switch beyaz bir outline ile parlýyor. Böylece etkileþime geçilebilir olduðunu anlýyoruz. E tuþuna basarak etkileþime geçebiliyoruz. Herhangi bir animasyon oynamadan direkt olarak on / off þeklinde çalýþýyor. Switch, hangi mekanizmaya baðlýysa onu açýyor / kapatýyor.
+
+------ Tesla Mekanikleri ------
+
+Dikkat daðýtma aracý olarak kullanabildiðimiz teslalar, onlara ana karakter veya gölge ile vurduðumuzda, dört grid yarýçapýnda duyulabilen, anlýk bir ses üretiyorlar. Normalde sabit duruyorlarken biz vurduðumuzda animasyonlarý bir kez oynuyor, ardýndan tekrar sabit forma geri dönüyorlar.
